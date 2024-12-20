@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>線上測驗系統</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .question-container {
+            background: white;
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .question-container:hover {
+            transform: translateY(-2px);
+        }
+
+        .question {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            margin: 15px 0;
+        }
+
+        .option-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-item:hover {
+            background-color: #f8f9fa;
+            border-color: #1a73e8;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        label {
+            cursor: pointer;
+            display: inline-block;
+            width: calc(100% - 30px);
+        }
+
+        #submitBtn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            color: white;
+            background-color: #1a73e8;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #submitBtn:hover {
+            background-color: #1557b0;
+        }
+
+        .result {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 10px;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .score-high {
+            color: #28a745;
+            background-color: #d4edda;
+        }
+
+        .score-low {
+            color: #dc3545;
+            background-color: #f8d7da;
+        }
+
+        .score-mid {
+            color: #1a73e8;
+            background-color: #e8f0fe;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .question-container {
+                padding: 15px;
+            }
+
+            .question {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>線上測驗系統</h1>
+    </div>
+    <div class="container">
+        <div id="quiz-container"></div>
+        <button id="submitBtn">提交答案</button>
+        <div id="result" class="result"></div>
+    </div>
+    <script src="quiz.js"></script>
+</body>
+</html>
